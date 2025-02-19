@@ -38,4 +38,7 @@ A full-stack CRUD application for managing users, built with React, Node.js, Exp
 #### Database
 - MongoDB 🍃
 
-[![Project Demo](https://img.youtube.com/vi/AWQk-HfYFtA/maxresdefault.jpg)](https://www.youtube.com/watch?v=AWQk-HfYFtA)
+### Project Demo
+[![Project Demo Thumbnail](https://img.youtube.com/vi/AWQk-HfYFtA/maxresdefault.jpg)](https://www.youtube.com/watch?v=AWQk-HfYFtA)
+
+[Click here to watch the Project Demo](https://www.youtube.com/watch?v=AWQk-HfYFtA)
