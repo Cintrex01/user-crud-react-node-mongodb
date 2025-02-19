@@ -1,0 +1,1 @@
+A full-stack CRUD application for managing users, built with React, Node.js, Express, and MongoDB. It allows users to create, read, update, and delete user data efficiently through a simple and intuitive interface.
