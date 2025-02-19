@@ -9,6 +9,7 @@
 
 .form{
     margin-top: 60px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     background-color: #ccc5b9;
@@ -20,7 +21,7 @@
 
 .form h1{
     font-size: 2.5rem;
-    color: #403d39;
+    color: #252422;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -29,7 +30,6 @@
 .inputs{
     display: flex;
     flex-direction: column;
-    border-radius: 50%;
     
 }
 
@@ -87,6 +87,7 @@
 }
 
 .user-data h3{
+    color: #252422;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -100,16 +101,33 @@
     font-weight: 600;
 }
 
-.delete-btn{
+.action-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.delete-btn , .update-btn{
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
 
-.delete-btn button{
+.delete-btn button, .update-btn button{
     border: none;
     background-color: transparent;
+}
+
+.update-btn button i{
+    color: #403d39;
+    font-size: 1.3rem;
+}
+
+.update-btn button i:hover{
+    color: #141312;
+    cursor: pointer;
 }
 
 .delete-btn button i{

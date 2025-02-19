@@ -3,11 +3,15 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import './App.css'
 import { MdDelete } from "react-icons/md";
+import { FaPen } from "react-icons/fa";
 import api from '../services/api';
+import UpdateModal from './components/updateModal';
 
 function App() {
 
   const [users,setUsers] = useState([])
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const inputName = useRef()
   const inputAge = useRef()
@@ -33,6 +37,17 @@ function App() {
     await api.delete('/users/'+id, {
     })
     getUsers()
+  }
+
+  function handleUpdateClick(user) {
+    setSelectedUser(user);
+    setIsModalOpen(true);
+  }
+
+  async function updateUser(updatedUser) {
+    await api.put(`/users/${updatedUser.id}`, updatedUser);
+    setIsModalOpen(false);
+    getUsers();
   }
 
   useEffect(() => {
@@ -65,12 +80,23 @@ function App() {
             <h3>Age: <span>{user.age}</span></h3>
             <h3>Email: <span>{user.email}</span></h3>
           </div>
-          <div className="delete-btn">
-            <button onClick={() => deleteUsers(user.id)}><i><MdDelete /></i></button>
+          <div className='action-buttons'>
+            <div className="update-btn">
+            <button onClick={() => handleUpdateClick(user)}><i><FaPen /></i></button>
+            </div>
+            <div className="delete-btn">
+              <button onClick={() => deleteUsers(user.id)}><i><MdDelete /></i></button>
+            </div>
           </div>
         </div>
       ))}
-        
+      {isModalOpen && (
+        <UpdateModal
+          user={selectedUser}
+          onClose={() => setIsModalOpen(false)}
+          onUpdate={updateUser}
+        />
+      )}
       </div>
     </>
   )
